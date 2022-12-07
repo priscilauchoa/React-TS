@@ -2,14 +2,17 @@ import React, { useState } from 'react'
 
 type TitleProps = {
   text: string;
+  size?: 'small' | 'large'
 }
 
 type reactNodeType = {
   children: React.ReactNode
 }
 
-const Title = ({text}: TitleProps) =>{
-  return <h1>
+const Title = ({text, size}: TitleProps) =>{
+  return <h1 
+    style={{fontSize: size == "small" ? "1.5rem" : "3rem"}}    
+  >
     {text}
   </h1>
 }
@@ -31,7 +34,7 @@ function App() {
 
   return (
     <div className="App">
-      <Title text="A Title here"/>
+      <Title text="A Title here" size="small"/>
       <Content>A Content Here 🤚</Content>
       <ReactNode><span>A React Node here</span></ReactNode>
     </div>
